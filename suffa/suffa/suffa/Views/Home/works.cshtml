@@ -1,0 +1,40 @@
+﻿@model suffa.Models.homeındexview
+@{
+    ViewBag.Title = "works";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+@*Referanslar*@
+<section class="ftco-section ftco-project bg-light" id="projects-section">
+    <div class="container px-md-5">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">SUFFATECH</span>
+                <h2 class="mb-4">Referanslarımız</h2>
+                <p>Çalıştığımız firmalar</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 testimonial">
+                <div class="carousel-project owl-carousel">
+                    @foreach (var works in Model.works)
+                    {
+                        <div class="item">
+                            <div style="border-radius:50px" class="project">
+                                <div class="img">
+                                    <img style="height:300px" src="@Url.Content(works.worksImage)" class="img-fluid" alt="Colorlib Template">
+                                    <div class="text px-4">
+                                        <h3><a style="margin-left:100px" href="#">@works.worksName</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

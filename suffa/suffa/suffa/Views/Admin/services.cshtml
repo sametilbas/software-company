@@ -1,0 +1,74 @@
+﻿@model IEnumerable<suffa.Models.services>
+@{
+    ViewBag.Title = "services";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+    <!-- ekleme Button trigger modal -->
+    <button type="button" class="btn btn-primary" onclick="ekle()">
+        Ekle
+    </button>
+    <div id="div" style="display:none">
+        @using (Html.BeginForm("servicesadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="servicesName" class="form-control" required placeholder="Servis Adı" />
+            <br />
+            <textarea name="servicesDesc" class="form-control" required rows="10"> </textarea>
+            <br />
+            <input style="margin-left:40px" type="submit" class="btn btn-success" value="Kaydet" />
+        }
+    </div>
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ad</th>
+                <th>Resim</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.servicesId</td>
+                    <td>@item.servicesName</td>
+                    <td>@item.servicesDesc</td>
+                    <td>
+                        <a href="@Url.Action("servicesdelete","Admin",new {id=item.servicesId })" type="button" onclick="return sor()">
+                            Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+<script>
+    function sor() {
+
+        if (confirm("Kayıt Siliniyor, Onaylıyormusunuz?")) { }
+        else { return false; }
+    }
+    function ekle() {
+        var div = document.getElementById("div");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+        }
+        else {
+            div.style.display = "none";
+        }
+    }
+</script>
+
+
+@section samet
+    {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+

@@ -1,0 +1,38 @@
+﻿@model suffa.Models.homeındexview
+@{
+    ViewBag.Title = "services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+@*Servis*@
+<section class="ftco-section-2 img" id="services-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">SUFFATECH</span>
+                <h2 class="mb-4">Servisler</h2>
+                <p>Sunduğumuz Hizmetler</p>
+            </div>
+        </div>
+        <div class="row d-md-flex justify-content-end">
+            <div style="width:500px;height:auto;color:lawngreen;background-image:url('/images/about.jpg');border-radius:70px" class="jumbotron"></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        @foreach (var servis in Model.services)
+                        {
+                            <a style="border-radius:50px" href="#" class="services-wrap ftco-animate">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="ion-ios-arrow-back"></span>
+                                    <span class="ion-ios-arrow-forward"></span>
+                                </div>
+                                <h2>@servis.servicesName</h2>
+                                <p>@servis.servicesDesc</p>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

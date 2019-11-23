@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "about";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+@*Hakkımızda*@
+<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">SUFFATECH</span>
+                <h2 class="mb-4">Servisler</h2>
+                <p>Sunduğumuz Hizmetler</p>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-6 col-lg-5 d-flex">
+                <div class="img d-flex align-self-stretch align-items-center" style="background-image:url('/images/about-1.jpg');border-radius:50px"></div>
+            </div>
+            <div class="col-md-6 col-lg-7 pl-lg-5 py-5">
+                <div class="py-md-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <span class="subheading">Smart Useful eFFective Application TECHnologies</span>
+                            <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">SUFFATECH</h2>
+                            @foreach (var about in Model.abouts)
+                            {
+                                if (about.aboutType == true)
+                                {
+                                    <h4>Misyon</h4>
+                                }
+                                else
+                                {
+                                    <h4>Vizyon</h4>
+                                }
+                                <p>@about.abouts</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                        <div class="text p-4 bg-primary">
+                            <p class="mb-0">
+                                @{
+                                    int i = 0;
+                                    i = 1 + (DateTime.Now.Year - 2019);
+                                }
+                                <span class="number">@i</span>
+                                <span>Yıllık Deneyim</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,26 @@
+﻿@model suffa.Models.blogviewmodel
+@{
+    ViewBag.Title = "blogadd";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<h2>Blog Ekleme</h2>
+@using (Html.BeginForm("blogadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="text" name="postTitle" class="form-control" required placeholder="Başlık" />
+    <br />
+    <div class="ticket-form">
+        <div class="form-group">
+            <textarea name="postDescription" class="summernote form-control" placeholder="Type a reply ..."></textarea>
+        </div>
+    </div>
+    <br />
+    <span style="color:skyblue">Kategori</span>
+    @Html.DropDownListFor(model => model.categorylist, new MultiSelectList(Model.category, "categoryId", "categories"), new { @class = "form-control" })
+    <br />
+    <input type="file" name="foto" required value="Resim Seçiniz" />
+    <br />
+    <br />
+    <input style="margin-left:40px" type="submit" class="btn btn-success" value="Kaydet" />
+}
+

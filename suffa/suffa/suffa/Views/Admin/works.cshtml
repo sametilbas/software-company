@@ -1,0 +1,63 @@
+﻿@model IEnumerable<suffa.Models.works>
+@{
+    ViewBag.Title = "works";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<!-- ekleme Button trigger modal -->
+<button type="button" class="btn btn-primary" onclick="ekle()">
+    Ekle
+</button>
+@using (Html.BeginForm("worksadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div style="display:none"id="div">
+        @Html.AntiForgeryToken()
+        <input type="text" name="worksName" class="form-control" id="name" required placeholder="Referans Adı" />
+        <br />
+        <input type="file" name="foto" class="form-control" id="foto"  required />
+        <br />
+        <input id="button" style="margin-left:40px;" type="submit" class="btn btn-success" value="Kaydet" />
+    </div>
+}
+
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Resim</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.worksId</td>
+                <td>@item.worksName</td>
+                <td><img style="height:50px;width:50px" src="@Url.Content(item.worksImage)" /></td>
+                <td>
+                    <a href="@Url.Action("worksdelete","Admin",new { id=item.worksId})" type="button" onclick="return sor()">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function sor() {
+
+        if (confirm("Kayıt Siliniyor, Onaylıyormusunuz?")) { }
+        else { return false; }
+    }
+    function ekle() {
+        var div = document.getElementById("div");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+        }
+        else {
+            div.style.display = "none";
+        }
+    }
+</script>

@@ -1,0 +1,59 @@
+﻿@model suffa.Models.homeındexview
+@{
+    ViewBag.Title = "team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*Takım*@
+<section class="ftco-section" id="testimony-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-6 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Çalışanlarımız</h2>
+                <p>Smart Useful eFFective Application TECHnologies</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var team in Model.employes)
+            {
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                @if (team.employeId % 5 == 0)
+                {
+                    <span><br /><br /></span>
+                }
+                @foreach (var user in Model.user)
+                {
+                    if (team.userId == user.userId)
+                    {
+                        <div style="border-radius:50px" class="staff">
+
+                            <div class="img-wrap d-flex align-items-stretch">
+                                <div class="img align-self-stretch">
+                                    <img style="height:300px;width:250px" src="@Url.Content(team.employeImage)" />
+                                </div>
+                            </div>
+                            <div class="text d-flex align-items-center pt-3 text-center">
+                                <div>
+                                    <h3 style="color:whitesmoke" class="mb-2">@user.userName @user.userSurname</h3>
+                                    <span class="position mb-4">@user.userRole</span>
+                                    <div class="faded">
+                                        <ul class="ftco-social text-center">
+                                            <li class="ftco-animate"><a href="#"><span style="color:white" class="icon-twitter"></span></a></li>
+                                            <li class="ftco-animate"><a href="#"><span style="color:white" class="icon-facebook"></span></a></li>
+                                            <li class="ftco-animate"><a href="#"><span style="color:white" class="icon-google-plus"></span></a></li>
+                                            <li class="ftco-animate"><a href="#"><span style="color:white" class="icon-instagram"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                }
+            </div>
+            }
+        </div>
+
+    </div>
+</section>
+
+

@@ -1,0 +1,43 @@
+﻿@model suffa.Models.homeındexview
+@{
+    ViewBag.Title = "Projeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/blogcard.css" rel="stylesheet" />
+<section style="background-color:white;padding-top:50px" class="details-card">
+    <div class="container" >
+        <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">SUFFATECH</span>
+                <h2 class="mb-4">Projeler</h2>
+                <p>Hazırlamış olduğumuz projeler</p>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var project in Model.project)
+            {
+                <div style="margin-top:30px;" class="col-md-4">
+                    <div style="border-radius:50px" class="card-content">
+                        <div style="border-top-right-radius:50px" class="card-img">
+                            <a href="@Url.Action("singleproject","Home",new { id=project.projectId,title=project.projectName})">
+                                <img style="height:300px;" src="@Url.Content(project.projectImagePath)" alt="">
+                                <span style="border-radius:50px"><h4>SUFFATECH</h4></span>
+                            </a>
+                        </div>
+                        <div class="card-desc">
+                            <h3><a href="@Url.Action("singleproject","Home",new { id=project.projectId,title=project.projectId})">@project.projectName</a></h3>
+
+                            <div>
+                                <span>@project.projectDescrption.Substring(0, 100) ...</span>
+                            </div>
+                            <br />
+                            <a style="border-radius:50px" href="@Url.Action("singleproject","Home",new { id=project.projectId,title=project.projectId})" class="btn-card">Detaya Git</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

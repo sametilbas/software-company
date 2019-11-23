@@ -1,0 +1,212 @@
+﻿    <!DOCTYPE html>
+<html>
+<head>
+    <title>SuffaTech-@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SUFFATECH insanlara akıllı,yararlı,etkili teknolojiler üreten bir teknoloji firması olarak hedeflerini her zaman
+          en üstte tutarak sizlere yardımcı olmayı amaçlar." />
+    <meta name="keywords" content="suffa,suffatech,yazılım,kayseri yazılım,teknoloji" />
+    <meta name="author" content="Samet İlbaş" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ckeditor")
+    <noscript>Bu sitede javascript kullanılıyor bu yüzden dolayıdır ki sizlere daha iyi hizmet verebilmek için tarayıcınızdan javascript'i açmanızı öneririz.</noscript>
+    <!-- General CSS Files -->
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../node_modules/jqvmap/dist/jqvmap.min.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/chocolat.css" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+    @RenderSection("scripts", required: false)
+    @RenderSection("samet", required: false)
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <form class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                </form>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle">
+                        <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                            <div class="dropdown-header">
+                                Notifications
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-icons">
+                                <a href="#" class="dropdown-item dropdown-item-unread">
+                                    <div class="dropdown-item-icon bg-primary text-white">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="dropdown-item-desc">
+                                        Template update is available now!
+                                        <div class="time text-primary">2 Min Ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-item-icon bg-info text-white">
+                                        <i class="far fa-user"></i>
+                                    </div>
+                                    <div class="dropdown-item-desc">
+                                        <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                                        <div class="time">10 Hours Ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-item-icon bg-success text-white">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="dropdown-item-desc">
+                                        <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                                        <div class="time">12 Hours Ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-item-icon bg-danger text-white">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="dropdown-item-desc">
+                                        Low disk space. Let's clean it!
+                                        <div class="time">17 Hours Ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-item-icon bg-info text-white">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <div class="dropdown-item-desc">
+                                        Welcome to Stisla template!
+                                        <div class="time">Yesterday</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                            <div class="d-sm-none d-lg-inline-block"></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="features-profile.html" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Profil
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="@Url.Action("Logout","Admin")" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Çıkış
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="@Url.Action("Blog","Admin")">SUFFATECH</a>
+                    </div>
+                    <div class="sidebar-brand sidebar-brand-sm">
+                        <a href="@Url.Action("Blog","Admin")"><i class="fas fa-fire"></i></a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li><a class="nav-link" href="@Url.Action("Blog","Admin")"><i class="fas fa-fire"></i> <span>Anasayfa</span></a></li>
+                        <li class="menu-header">Şirket </li>
+
+                        <li><a class="nav-link" href="@Url.Action("Team","Admin")"><i class="far fa-user"></i> <span>Çalışan</span></a></li>
+                        <li><a class="nav-link" href="@Url.Action("intern","Admin")"><i class="far fa-user"></i> <span>Stajyer</span></a></li>
+
+                        <li class="menu-header">Ortaklar</li>
+                        @*<li class="nav-item dropdown">
+                                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
+                                    <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
+                                    <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                                </ul>
+                            </li>*@
+                        <li><a class="nav-link" href="@Url.Action("partner","Admin")"><i class="far fa-user"></i> <span>Çözüm Ortakları</span></a></li>
+
+                        <li class="menu-header">Eğitim</li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Blog</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("blog","Admin")">Blog</a></li>
+                                <li><a href="@Url.Action("blogadd","Admin")">Blog Ekle</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-header">İşlemler</li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-pencil-ruler"></i> <span>İşlemler</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("works","Admin")">Referanslar</a></li>
+                                <li><a href="@Url.Action("services","Admin")">Hizmetler</a></li>
+                                <li><a href="@Url.Action("project","Admin")">Projeler</a></li>
+                                <li><a href="@Url.Action("about","Admin")">Hakkımızda</a></li>
+                                <li><a href="@Url.Action("pro","Admin")">Geçmiş İşlemler</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link" href="@Url.Action("Logout","Admin")"><i class="fas fa-sign-out-alt"></i> <span>Çıkış</span></a></li>
+                </aside>
+            </div>
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    @RenderBody()
+                </section>
+            </div>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    Copyright &copy; 2019 <div class="bullet"></div> Design By <a href="#">Samet İlbaş</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../assets/js/stisla.js"></script>
+    <!-- JS Libraies -->
+    <script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/chocolat.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <!-- Template JS File -->
+    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="../assets/js/page/index.js"></script>
+    @section samet
+    {
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+        <script src="~/js/editor.js"></script>
+    }
+</body>
+</html>

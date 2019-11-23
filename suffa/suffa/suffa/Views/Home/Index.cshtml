@@ -1,0 +1,168 @@
+﻿@model suffa.Models.homeındexview
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <!DOCTYPE html>
+}
+<html lang="en">
+<head>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    @*Slider*@
+    <section id="home-section" class="hero">
+        <h3 style="font-size:15px" class="vr">Smart Useful eFFective Application TECHnologies</h3>
+        <div class="home-slider js-fullheight owl-carousel">
+            <div class="slider-item js-fullheight">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last img js-fullheight">
+                            <img src="~/images/bg_1.jpg" />
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading">Welcome to the digilab</span>
+                                <h1 class="mb-4 mt-3">Small Details Make A Big <span>Impression</span></h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Get in touch</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item js-fullheight">
+                <div class="overlay"></div>
+                <div class="container-fluid p-0">
+                    <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="one-third order-md-last img js-fullheight">
+                            <img src="~/images/bg_2.jpg" />
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                            <div class="text">
+                                <span class="subheading">Welcome to the digilab</span>
+                                <h1 class="mb-4 mt-3"><span>Strategic</span> Design And <span>Technology</span> Agency</h1>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+
+                                <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Get in touch</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*Servis*@
+    <section class="ftco-section-2 img" id="services-section">
+        <div class="container">
+            <div class="row d-md-flex justify-content-end">
+                <div style="width:500px;height:auto;color:lawngreen;background-image:url('/images/about.jpg');border-radius:70px" class="jumbotron"></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @foreach (var servis in Model.services)
+                            {
+                                <a style="border-radius:50px" href="#" class="services-wrap ftco-animate">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="ion-ios-arrow-back"></span>
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </div>
+                                    <h2>@servis.servicesName</h2>
+                                    <p>@servis.servicesDesc</p>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   @*Blog*@
+    <section class="ftco-section bg-light" id="blog-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Blog</h2>
+                    <p>Bildiklerimizi sizler ile paylaşmaktan mutluluk duyarız.</p>
+                </div>
+            </div>
+            <div class="row d-flex">
+                @foreach (var blog in Model.blogposts)
+                {
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <a style="border-radius:50px" href="@Url.Action("singleblog","Home",new { id=blog.postid,title=blog.postTitle})" class="block-20">
+                                <img style="height:350px;width:350px;" src="@Url.Content(blog.postImagePath)" />
+                            </a>
+                            <div class="text mt-3 float-right d-block">
+                                <div class="d-flex align-items-center pt-2 mb-4 topp">
+                                    <div class="one mr-2">
+                                        <span class="day">@blog.postDate.Day</span>
+                                    </div>
+                                    <div class="two">
+                                        <span class="yr">@blog.postDate.Year</span>
+                                        <span class="mos">@blog.postDate.Month</span>
+                                    </div>
+                                </div>
+                                <h3 class="heading"><a href="@Url.Action("singleblog","Home",new { id=blog.postid,title=blog.postTitle})">@blog.postTitle</a></h3>
+                                @*<p>@Html.Raw(blog.postDescription)</p>*@
+                                <div class="d-flex align-items-center mt-4 meta">
+                                    <p class="mb-0"><a href="@Url.Action("singleblog","Home",new { id=blog.postid,title=blog.postTitle})" class="btn btn-primary">Devam...<span class="ion-ios-arrow-round-forward"></span></a></p>
+                                    <p class="ml-auto mb-0">
+                                        <a href="#" class="mr-2">Yazar:SuffaTech</a>
+                                        <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    @*İletişim*@
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">İletişim</h2>
+                    <p>Smart Useful eFFective Application TECHnologies</p>
+                </div>
+            </div>
+            <div class="row d-flex contact-info mb-5">
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-map-signs"></span>
+                        </div>
+                        <h3 class="mb-4">Adres</h3>
+                        <p>Yeni Mahalle Aşık Veysel Bulvarı Erciyes Teknopark Tekno 2 Binası Numara:12 Melikgazi/Kayseri</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-phone2"></span>
+                        </div>
+                        <h3 class="mb-4">İletişim Numarası</h3>
+                        <p><a href="tel://1234567920">+90 536 504 6631</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                    <div class="align-self-stretch box p-4 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-paper-plane"></span>
+                        </div>
+                        <h3 class="mb-4">Email Adresi</h3>
+                        <p><a href="mailto:ilbassamet@hotmail.com">ilbassamet@hotmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

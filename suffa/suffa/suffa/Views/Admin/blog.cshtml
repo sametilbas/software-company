@@ -1,0 +1,86 @@
+﻿@model suffa.Models.blogviewmodel
+
+@{
+    ViewBag.Title = "Adminblog";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@if (ViewBag.mesaj != null)
+{
+    <script>alert("Yetkiniz Yok");</script>
+}
+<a type="button" class="btn btn-primary" href="@Url.Action("blogadd","Admin")">Blog Ekle</a>
+<a type="button" class="btn btn-primary" onclick="ekle()">Kategori Ekle</a>
+<br />
+<div id="div" style="display:none">
+    @using (Html.BeginForm("categoryadd", "Admin", FormMethod.Post))
+    {
+        <br />
+        <input class="form-control" type="text" id="kate" placeholder="Kategori" name="categories" />
+        <br />
+        <input type="submit" onclick="return control()" value="Ekle" id="buton" class="form-control" />
+    }
+</div>
+<br />
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+            <th>Tarih</th>
+            <th>Beğeni</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.blog)
+        {
+            <tr>
+                <td>@item.postid</td>
+                <td>@item.postTitle</td>
+                <td>@Html.Raw(item.postDescription.Substring(0, 400))</td>
+                <td><img style="height:150px;width:150px" src="@Url.Content(item.postImagePath)" /></td>
+                <td>@item.postDate.Day- @item.postDate.Month- @item.postDate.Year</td>
+                <td>@item.postLike</td>
+                <td>
+                    <a href="@Url.Action("blogdelete", "Admin", new { id = item.postid })" onclick="return sor()">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    function sor() {
+        if (confirm("Kayıt Siliniyor, Onaylıyormusunuz?")) { }
+        else { return false; }
+    }
+    function ekle() {
+        var div = document.getElementById("div");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+        }
+        else {
+            div.style.display = "none";
+        }
+    }
+    function control() {
+        var value = document.getElementById("kate").value;
+        if (value == null) {
+            alert("Boş gönderemezsiniz!!");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+
+@section samet
+    {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

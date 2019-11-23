@@ -1,0 +1,114 @@
+﻿@model IEnumerable<suffa.Models.about>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<style>
+    #dis_bolme {
+        width: 1000px;
+        height: 250px;
+    }
+
+    .ic_bolme {
+        float: left;
+        width: 450px;
+        height: 250px;
+        margin-right: 10px;
+        margin-left: 4px;
+    }
+</style>
+
+
+<button type="button" class="btn btn-primary" onclick="ekle()">
+    Misyon Ekle
+</button>
+
+<button type="button" class="btn btn-primary" onclick="ekle1()">
+    Vizyon Ekle
+</button>
+
+<div>
+    <div id="div1" style="display:none">
+        @using (Html.BeginForm("Aboutadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="type" value="1" />
+            <textarea style="height:200px;" name="abouts" class="form-control" rows="15" required> </textarea>
+            <br />
+            <input style="margin-left:40px" type="submit" class="btn btn-success" value="Kaydet" />
+        }
+    </div>
+    <div id="div2" style="display:none">
+        @using (Html.BeginForm("Aboutadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="type" value="0" />
+            <textarea name="abouts" class="form-control" rows="15" required> </textarea>
+            <br />
+            <input style="margin-left:40px" type="submit" class="btn btn-success" value="Kaydet" />
+        }
+    </div>
+</div>
+<div id="dis_bolme">
+    <div class="ic_bolme">
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("Aboutupdate", "Admin", FormMethod.Post))
+            {
+                if (item.aboutType == true)
+                {
+                    <span>Misyon Güncelle</span>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="aboutId" value="@item.aboutId" />
+                    <input type="hidden" name="type" value="1" />
+                    <textarea name="abouts" class="form-control" cols="400" rows="15" style="height:auto">@item.abouts</textarea>
+                    <input type="submit" value="Kaydet" />
+                }
+            }
+        }
+    </div>
+    <div class="ic_bolme">
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("Aboutupdate", "Admin", FormMethod.Post))
+            {
+                if (item.aboutType == false)
+                {
+                    <span>Vizyon Güncelle</span>
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="aboutId" value="@item.aboutId" />
+                    <input type="hidden" name="type" value="0" />
+                    <textarea name="abouts" class="form-control" cols="400" rows="15" style="height:auto">@item.abouts</textarea>
+                    <input type="submit" value="Kaydet" />
+                }
+            }
+        }
+    </div>
+</div>
+
+<script>
+    function ekle() {
+        var div = document.getElementById("div1");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+        }
+        else {
+            div.style.display = "none";
+        }
+    }
+    function ekle1() {
+        var div = document.getElementById("div2");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+        }
+        else {
+            div.style.display = "none";
+        }
+    }
+</script>
+@section samet
+    {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

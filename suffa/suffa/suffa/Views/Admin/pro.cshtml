@@ -1,0 +1,46 @@
+﻿@model suffa.Models.processview
+@{
+    ViewBag.Title = "pro";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<table id="tblProject" class="table table-striped tab-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>İşlemi Yapan Adı</th>
+            <th>İşlem Adı</th>
+            <th>İşlem Tablo Id</th>
+            <th>İşlem Tipi</th>
+            <th>İşlem Zamanı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var process in Model.process)
+        {
+        <tr>
+            <td>@process.processId</td>
+            @foreach (var emp in Model.employe)
+            {
+                if (emp.employeId == process.employeId)
+                {
+                    foreach (var user in Model.user)
+                    {
+                        if (emp.userId == user.userId)
+                        {
+                            <td>@user.userName</td>
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            <td>@process.procesName</td>
+            <td>@process.id</td>
+            <td>@process.processType</td>
+            <td>@process.processTime</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

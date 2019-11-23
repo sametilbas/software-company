@@ -1,0 +1,151 @@
+﻿@model suffa.Models.homeındexview 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SuffaTech-@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SUFFATECH insanlara akıllı,yararlı,etkili teknolojiler üreten bir teknoloji firması olarak hedeflerini her zaman
+          en üstte tutarak sizlere yardımcı olmayı amaçlar." />
+    <meta name="keywords" content="suffa,suffatech,yazılım,kayseri yazılım,teknoloji" />
+    <meta name="author" content="Samet İlbaş" />
+    <title>SUFFATECH</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ckeditor")
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <noscript>Bu sitede javascript kullanılıyor bu yüzden dolayıdır ki sizlere daha iyi hizmet verebilmek için tarayıcınızdan javascript'i açmanızı öneririz.</noscript>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300"> 
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">SUFFA<span>TECH</span></a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="@Url.Action("Index","Home")" class="nav-link"><span>Anasayfa</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("services","Home")" class="nav-link"><span>Servisler</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("works","Home")" class="nav-link"><span>Referanslar</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("about","Home")" class="nav-link"><span>Hakkımızda</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("team","Home")" class="nav-link"><span>Ekip</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("allblog","Home")" class="nav-link"><span>Blog</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("project","Home")" class="nav-link"><span>Projeler</span></a></li>
+                    <li class="nav-item"><a href="@Url.Action("request","Home")" class="nav-link"><span>Başvurular/İletişim</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+    @RenderSection("samet", required: false)
+
+    @*footer*@
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">SUFFATECH</h2>
+                        @foreach (var about in Model.abouts)
+                        {
+                            <p>@about.abouts</p>
+                            break;
+                            <a href="#about-section">Devamı...</a>
+                        }
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Action("Index","Home")"><span class="icon-long-arrow-right mr-2"></span>Anasayfa</a></li>
+                            <li><a href="@Url.Action("services","Home")"><span class="icon-long-arrow-right mr-2"></span>Servisler</a></li>
+                            <li><a href="@Url.Action("project","Home")"><span class="icon-long-arrow-right mr-2"></span>Projeler</a></li>
+                            <li><a href="@Url.Action("about","Home")"><span class="icon-long-arrow-right mr-2"></span>Hakkımızda</a></li>
+                            <li><a href="@Url.Action("team","Home")"><span class="icon-long-arrow-right mr-2"></span>Ekip</a></li>
+                            <li><a href="@Url.Action("allblog","Home")"><span class="icon-long-arrow-right mr-2"></span>Blog</a></li>
+                            <li><a href="@Url.Action("project","Home")"><span class="icon-long-arrow-right mr-2"></span>Projeler</a></li>
+                            <li><a href="@Url.Action("request","Home")"><span class="icon-long-arrow-right mr-2"></span>Başvurular/İletişim</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Servisler</h2>
+                        <ul class="list-unstyled">
+                            @foreach (var servis in Model.services)
+                            {
+                                <span class="icon-long-arrow-right mr-2"></span>@servis.servicesName
+                                <br />
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Yardıma mı ihtiyacınız var?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Loremipsdusdsklasadnsaksa</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">41546545</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">ilbassamet@hotmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script>
+                        Design by SAMET İLBAŞ | Şablon yapımcısı <i class="icon-heart color-danger" aria-hidden="true"></i>
+                        by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/js/google-map.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+</html>

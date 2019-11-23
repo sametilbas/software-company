@@ -1,0 +1,63 @@
+﻿@model IEnumerable<suffa.Models.project>
+@{
+    ViewBag.Title = "project";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+<button type="button" id="btn" class="btn btn-primary" onclick="ekle()">
+    Ekle
+</button>
+
+@using (Html.BeginForm("projectadd", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div style="display:none" id="div">
+        <br />
+        @Html.AntiForgeryToken()
+        <input type="text" name="projectName" class="form-control" required placeholder="Proje Adı" />
+        <br />
+        <textarea placeholder="Açıklama" class=" form-control" name="projectDescrption"></textarea>
+        <br />
+        <input type="file" name="foto" class="form-control" required />
+        <br />
+        <input id="button" style="margin-left:40px;" type="submit" class="btn btn-success" value="Kaydet" />
+    </div>
+}
+<table id="tblProject" class="table table-striped tab-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.projectId</td>
+                <td>@project.projectName</td>
+                <td>@project.projectDescrption</td>
+                <td><img alt="@project.projectName" style="height:150px;width:150px" src="@Url.Content(project.projectImagePath)" /></td>
+                <td><a type="button" href="@Url.Action("projectdelete","Admin",new { id=project.projectId})">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    function ekle() {
+        var btn = document.getElementById("btn");
+        var div = document.getElementById("div");
+        if (div.style.display == "none") {
+            div.style.display = "inline";
+            btn.innerHTML = "Kapat";
+        }
+        else {
+            div.style.display = "none";
+            btn.innerHTML = "Ekle";
+        }
+    }
+</script>
